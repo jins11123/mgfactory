@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>메가팩토리 상품검색 페이지</title>
+  <style>
+    body { background: #f7f7f7; font-family: 'Pretendard', sans-serif; margin: 0; }
+    .container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    h1 { margin-top: 40px; font-size: 2rem; font-weight: bold; letter-spacing: -1px; text-align: center; }
+    .search-box { margin: 36px 0 0 0; display: flex; flex-direction: column; align-items: center; }
+    .search-row { display: flex; align-items: center; justify-content: center; }
+    input[type="text"] { font-size: 18px; padding: 10px 16px; border: 1px solid #bbb; border-radius: 4px; width: 220px; box-sizing: border-box; }
+    button { margin-top: 12px; border: none; border-radius: 8px; background: #fff; box-shadow: 0 1px 5px #eee; font-weight: 500; font-size: 16px; padding: 8px 26px; cursor: pointer; }
+    .result-box { margin-top: 36px; background: #fff; padding: 32px 18px; border-radius: 16px; min-width: 320px; max-width: 440px; box-shadow: 0 4px 24px #0001; display: flex; flex-direction: column; gap: 24px; }
+    .result-item { margin-bottom: 10px; }
+    .item-name { font-weight: 600; font-size: 19px; margin-bottom: 4px; }
+    .item-loc { font-weight: 700; font-size: 22px; margin-bottom: 8px; }
+    .item-line { border-bottom: 2px solid #111; width: 100%; margin-top: 8px; }
+    @media (max-width: 500px) {
+      .result-box, input[type="text"] { min-width: 0; width: 95vw; font-size: 16px; }
+      .result-box { padding: 18px 2vw; max-width: 99vw; }
+    }
+  </style>
+  <script src="items.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>메가팩토리 상품검색 페이지</h1>
+    <div class="search-box">
+      <form id="searchForm" autocomplete="off">
+        <div class="search-row">
+          <input type="text" id="searchInput" placeholder="찾고자하는 품목 입력" />
+        </div>
+      </form>
+    </div>
+    <div class="result-box" id="resultBox">
+      <!-- 검색 결과가 여기에 나옵니다 -->
+    </div>
+  </div>
+  <script>
+    // items.js에서 const items를 불러와서 사용
+    const searchInput = document.getElementById('searchInput');
+    const resultBox = document.getElementById('resultBox');
+    const form = document.getElementById('searchForm');
+
+    function showResults(query) {
+      resultBox.innerHTML = "";
+      const q = query.trim().replace(/\s/g, "");
+      if (!q) return;
+      const filtered = (typeof items !== 'undefined' ? items : []).filter(item =>
+        item.name.replace(/\s/g, "").includes(q)
+      );
+      if (filtered.length === 0) {
+        resultBox.innerHTML = `<div style="color:#aaa;text-align:center;font-size:16px;">검색 결과가 없습니다.</div>`;
+      } else {
+        filtered.forEach(item => {
+          resultBox.innerHTML += `
+            <div class="result-item">
+              <div class="item-name">${item.name}</div>
+              <div class="item-loc">${item.location}</div>
+              <div class="item-line"></div>
+            </div>
+          `;
+        });
+      }
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      showResults(searchInput.value);
+    });
+    searchInput.addEventListener('input', function() {
+      showResults(searchInput.value);
+    });
+  </script>
+</body>
+</html>
