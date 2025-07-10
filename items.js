@@ -1,5 +1,5 @@
 const items = [
-  { name: "(신)이도스킨스왑100ea", location: "10-C열 3번째 줄13" },
+  { name: "(신)이도스킨스왑100ea", location: "위치확인요망" },
   { name: "(약용탄)케토플러스카타플라스타 6매", location: "10-C열 3번째 줄14" },
   { name: "(오에수)케토핀프리점안액0.5ml 12", location: "10-C열 3번째 줄15" },
   { name: "10한장으로 10매", location: "10-C열 3번째 줄16" },
@@ -22,8 +22,8 @@ const items = [
   { name: "Wow프리미엄 슈퍼롱", location: "10-C열 3번째 줄33" },
   { name: "Wow프리미엄 중형", location: "10-C열 3번째 줄34" },
   { name: "yuwell자동전자혈압계", location: "10-C열 3번째 줄35" },
-  { name: "가그린(후레쉬라임) 100ml", location: "10-C열 3번째 줄36" },
-  { name: "가그린(후레쉬라임)380ml", location: "10-C열 3번째 줄37" },
+  { name: "가그린(후레쉬라임) 100ml", location: "위치확인요망" },
+  { name: "가그린(후레쉬라임)380ml", location: "위치확인요망" },
   { name: "가그린100ml", location: "10-C열 3번째 줄38" },
   { name: "가그린민트(스프레이)7ml", location: "10-C열 3번째 줄39" },
   { name: "가그린스트롱750ml", location: "10-C열 3번째 줄40" },
