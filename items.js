@@ -1,5 +1,5 @@
 const items = [
-  { name: "(신)이도스킨스왑100ea", location: "위치확인요망" },
+  { name: "(신)이도스킨스왑100ea", location: "성수일로77" },
   { name: "(약용탄)케토플러스카타플라스타 6매", location: "10-C열 3번째 줄14" },
   { name: "(오에수)케토핀프리점안액0.5ml 12", location: "10-C열 3번째 줄15" },
   { name: "10한장으로 10매", location: "10-C열 3번째 줄16" },
